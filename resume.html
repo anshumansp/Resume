@@ -232,18 +232,22 @@
             @page {
                 margin: 20mm;
                 size: auto;
-                margin-header: 0;
-                margin-footer: 0;
+                margin-header: 0mm;
+                margin-footer: 0mm;
             }
 
-            .section-title {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
+            html {
+                height: 100%;
             }
 
             body {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
+                height: 100%;
+                position: relative;
+            }
+
+            @page {
+                size: auto;
+                margin: 20mm;
             }
 
             @page :first {
@@ -251,14 +255,21 @@
             }
 
             @page {
-                margin: 20mm;
                 size: auto;
+                margin: 20mm;
+                marks: none;
             }
 
             @-moz-document url-prefix() {
                 @page {
                     margin: 20mm;
                     size: auto;
+                }
+                html {
+                    height: 100%;
+                }
+                body::after {
+                    content: none !important;
                 }
             }
         }
